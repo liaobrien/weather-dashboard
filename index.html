@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <h1 class="text-center text-white bg-dark">Weather Dashboard</h1>
+    <header>
+      <h1 class="text-center text-white bg-dark">Weather Dashboard</h1>
+    </header>
     <div class="container">
       <div class="row justify-content-around">
         <div class="search-container col-3">
@@ -23,9 +25,18 @@
             <button id="submit">Search</button>
           </form>
         </div>
-        <div class="current-weather col-9"></div>
+        <div class="current-weather col-9">
+          <h2 id="city-date"></h2>
+          <div>
+            <p id="temp"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
+            <p id="uv-index"></p>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@ var searchBtn = document.getElementById("submit");
 var currentWeatherContainer = document.querySelector(".current-weather");
 
 var cityDateEl = document.getElementById("city-date");
+
 var currentTemp = document.getElementById("temp");
 var currentWind = document.getElementById("wind");
 var currentHumid = document.getElementById("humidity");
@@ -31,7 +32,20 @@ function getData(event) {
                   currentWind.textContent = "Wind: " + data.wind.speed + " MPH"
                   currentHumid.textContent = "Humidity: " + data.main.humidity + "%";
 
+                  var lat = data.coord.lat;
+                  var lon = data.coord.lon;
 
+                  var requestUrlUVI = "http://api.openweathermap.org/data/2.5/onecall?&units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+
+                  fetch(requestUrlUVI)
+                        .then(function (response) {
+                              return response.json();
+                        })
+                        .then(function (data) {
+                              console.log(data);
+
+                              currentUVI.textContent = "UV Index: " + data.current.uvi;
+                        })
             })
 }
 

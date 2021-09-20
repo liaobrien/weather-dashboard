@@ -1,7 +1,5 @@
 .current-weather {
   border: 2px solid black;
   border-radius: 5px;
-}
-li {
-  list-style-type: none;
+  padding: 30px;
 }

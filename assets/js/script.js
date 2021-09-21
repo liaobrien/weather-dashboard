@@ -124,7 +124,6 @@ function setHistory() {
       }
       prevCityEl.attr("class", "prev-cities btn btn-secondary btn-block");
       historyEl.append(prevCityEl).append("<br />");
-      // now i need getitem
 }
 
 function renderCities() {
@@ -145,18 +144,4 @@ function renderPrevCity(event) {
 historyEl.on("click", ".prev-cities", renderPrevCity);
 
 searchBtn.on('click', getData)
-
-
-
-// forecast += "<p>";
-// forecast += "<b>Day " + (index + 1) + "</b>: ";
-// forecast += "Temp: " + val.temp.day + "&degF | ";
-// forecast += "Wind: " + val.wind_speed + " mph | ";
-// forecast += "Humidity: " + val.humidity + "%";
-// forecast +=
-//       '<img src= "https://openweathermap.org/img/wn/' +
-//       val.weather[0].icon +
-//       '@2x.png">';
-// forecast += "<span>" + val.weather[0].description + "</span>";
-// forecast += "</p>";
 

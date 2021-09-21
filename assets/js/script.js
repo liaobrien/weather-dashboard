@@ -22,9 +22,14 @@ var currentDate = moment().format("M/DD/YYYY");
 var historyEl = $("#history");
 var searchHistory = [];
 
-function getData(city) {
+function getData(cityPrev) {
 
       var city = $("#city").val();
+
+      if (city.length === 0) {
+            city = cityPrev;
+      }
+
       var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
       fetch(queryUrl)
@@ -93,9 +98,13 @@ function getData(city) {
                               $("#forecasts").html(forecast);
 
                               setHistory();
-
+                              clearTextField();
                         })
             })
+}
+
+function clearTextField() {
+      $("#city").val("");
 }
 
 function setHistory() {

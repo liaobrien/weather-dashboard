@@ -58,13 +58,17 @@ function getData(event) {
                               var uviColor = data.current.uvi;
                               if (uviColor <= 2) {
                                     currentUVI.attr("class", "bg-success text-white");
-                              } else if (3 <= uviColor <= 5) {
+                              }
+                              else if (uviColor <= 3 && uviColor <= 5) {
                                     currentUVI.attr("class", "bg-warning text-white");
-                              } else if (6 <= uviColor <= 7) {
+                              }
+                              else if (uviColor <= 6 && uviColor <= 7) {
                                     currentUVI.attr("class", "bg-orange text-white");
-                              } else if (8 <= uviColor <= 10) {
+                              }
+                              else if (uviColor <= 8 && uviColor <= 10) {
                                     currentUVI.attr("class", "bg-danger text-white");
-                              } else if (uviColor > 10) {
+                              }
+                              else if (uviColor > 10) {
                                     currentUVI.attr("class", "bg-violet text-white");
                               }
 

@@ -79,20 +79,20 @@ function getData(cityPrev) {
                               fiveDayTitleEl.text("5-Day Forecast:");
 
                               var forecast = "";
-                              forecast += "<b>" + city + "</b>";
+
                               $.each(data.daily, function (index, val) {
                                     if (index < 5) {
-                                          forecast += "<p>";
-                                          forecast += "<b>Day " + (index + 1) + "</b>: ";
-                                          forecast += "Temp: " + val.temp.day + "&degF | ";
-                                          forecast += "Wind: " + val.wind_speed + " mph | ";
-                                          forecast += "Humidity: " + val.humidity + "%";
+                                          forecast += "<div class='days bg-info text-white col text-center'>";
+                                          forecast += "<h5>Day " + (index + 1) + "</h5> ";
+                                          forecast += "<p>Temp: " + val.temp.day + "&degF</p> ";
+                                          forecast += "<p>Wind: " + val.wind_speed + " mph</p> ";
+                                          forecast += "<p>Humidity: " + val.humidity + "%</p>";
                                           forecast +=
                                                 '<img src= "https://openweathermap.org/img/wn/' +
                                                 val.weather[0].icon +
                                                 '@2x.png">';
-                                          forecast += "<span>" + val.weather[0].description + "</span>";
-                                          forecast += "</p>";
+                                          forecast += "<p>" + val.weather[0].description + "</p>";
+                                          forecast += "</div>";
                                     }
                               });
                               $("#forecasts").html(forecast);
@@ -122,7 +122,7 @@ function setHistory() {
             var prevCityEl = $('<button>');
             prevCityEl.text(searchHistory[i]);
       }
-      prevCityEl.attr("class", "prev-cities");
+      prevCityEl.attr("class", "prev-cities btn btn-secondary btn-block");
       historyEl.append(prevCityEl).append("<br />");
       // now i need getitem
 }
@@ -137,4 +137,17 @@ historyEl.on("click", ".prev-cities", renderPrevCity);
 
 searchBtn.on('click', getData)
 
+
+
+// forecast += "<p>";
+// forecast += "<b>Day " + (index + 1) + "</b>: ";
+// forecast += "Temp: " + val.temp.day + "&degF | ";
+// forecast += "Wind: " + val.wind_speed + " mph | ";
+// forecast += "Humidity: " + val.humidity + "%";
+// forecast +=
+//       '<img src= "https://openweathermap.org/img/wn/' +
+//       val.weather[0].icon +
+//       '@2x.png">';
+// forecast += "<span>" + val.weather[0].description + "</span>";
+// forecast += "</p>";
 

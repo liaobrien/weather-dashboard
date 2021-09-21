@@ -111,6 +111,10 @@ function setHistory() {
       // set search history to local storage
       var prevCity = $("#city").val();
 
+      if (prevCity.length === 0) {
+            return;
+      }
+
       searchHistory.push(prevCity);
       localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 

@@ -127,6 +127,15 @@ function setHistory() {
       // now i need getitem
 }
 
+function renderCities() {
+      var storedArr = JSON.parse(localStorage.getItem("searchHistory"));
+      if (storedArr !== null) {
+            searchHistory = storedArr;
+      }
+}
+
+renderCities();
+
 function renderPrevCity(event) {
       event.preventDefault();
       var historyBtn = $(event.target);

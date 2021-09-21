@@ -19,7 +19,8 @@ var fiveDayTitleEl = $("#forecast-title");
 
 var currentDate = moment().format("M/DD/YYYY");
 
-var searchHistory = [];
+var historyEl = $("#history");
+var cities = [];
 
 function getData(event) {
       event.preventDefault();
@@ -55,13 +56,13 @@ function getData(event) {
                               currentUVI.text("UV Index: " + data.current.uvi);
 
                               var uviColor = data.current.uvi;
-                              if (uviColor < 2) {
+                              if (uviColor <= 2) {
                                     currentUVI.attr("class", "bg-success text-white");
-                              } else if (3 < uviColor < 5) {
+                              } else if (3 <= uviColor <= 5) {
                                     currentUVI.attr("class", "bg-warning text-white");
-                              } else if (6 < uviColor < 7) {
+                              } else if (6 <= uviColor <= 7) {
                                     currentUVI.attr("class", "bg-orange text-white");
-                              } else if (8 < uviColor < 10) {
+                              } else if (8 <= uviColor <= 10) {
                                     currentUVI.attr("class", "bg-danger text-white");
                               } else if (uviColor > 10) {
                                     currentUVI.attr("class", "bg-violet text-white");
@@ -88,7 +89,16 @@ function getData(event) {
                               });
                               $("#forecasts").html(forecast);
 
-                              localStorage.setItem("cities", city);
+                              // set search history to local storage
+                              cities.push(city);
+                              localStorage.setItem("cities", JSON.stringify(cities));
+
+                              for (let i = 0; i < cities.length; i++) {
+                                    var cityEl = $('<button>');
+                                    cityEl.text(cities[i]);
+                              }
+                              historyEl.append(cityEl);
+                              // now i need getitem
                         })
             })
 }

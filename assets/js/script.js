@@ -20,10 +20,9 @@ var fiveDayTitleEl = $("#forecast-title");
 var currentDate = moment().format("M/DD/YYYY");
 
 var historyEl = $("#history");
-var cities = [];
+var searchHistory = [];
 
-function getData(event) {
-      event.preventDefault();
+function getData(city) {
 
       var city = $("#city").val();
       var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
@@ -44,7 +43,7 @@ function getData(event) {
                   var lat = data.coord.lat;
                   var lon = data.coord.lon;
 
-                  var requestUrlUVI = "http://api.openweathermap.org/data/2.5/onecall?&units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+                  var requestUrlUVI = "https://api.openweathermap.org/data/2.5/onecall?&units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
 
                   fetch(requestUrlUVI)
                         .then(function (response) {
@@ -93,19 +92,35 @@ function getData(event) {
                               });
                               $("#forecasts").html(forecast);
 
-                              // set search history to local storage
-                              cities.push(city);
-                              localStorage.setItem("cities", JSON.stringify(cities));
+                              setHistory();
 
-                              for (let i = 0; i < cities.length; i++) {
-                                    var cityEl = $('<button>');
-                                    cityEl.text(cities[i]);
-                              }
-                              historyEl.append(cityEl);
-                              // now i need getitem
                         })
             })
 }
+
+function setHistory() {
+      // set search history to local storage
+      var prevCity = $("#city").val();
+
+      searchHistory.push(prevCity);
+      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+      for (let i = 0; i < searchHistory.length; i++) {
+            var prevCityEl = $('<button>');
+            prevCityEl.text(searchHistory[i]);
+      }
+      prevCityEl.attr("class", "prev-cities");
+      historyEl.append(prevCityEl).append("<br />");
+      // now i need getitem
+}
+
+function renderPrevCity(event) {
+      event.preventDefault();
+      var historyBtn = $(event.target);
+      getData(historyBtn.text());
+}
+
+historyEl.on("click", ".prev-cities", renderPrevCity);
 
 searchBtn.on('click', getData)
 

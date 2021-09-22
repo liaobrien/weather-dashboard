@@ -2,6 +2,8 @@ var APIKey = "594f4b0a93a1af56a8fb27e3af8c5bc2";
 
 var searchBtn = $("#submit");
 
+var clearBtn = $("#clear");
+
 // current weather
 var currentWeatherContainer = $(".current-weather");
 
@@ -123,23 +125,6 @@ function setHistory() {
       historyEl.append(prevCityEl);
 }
 
-function renderCities() {
-      var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
-      if (storedCities !== null) {
-            searchHistory = storedCities;
-      }
-
-      for (let i = 0; i < storedCities.length; i++) {
-            var prevCityEl = $('<button>');
-            prevCityEl.text(storedCities[i]);
-            prevCityEl.attr("class", "prev-cities btn btn-secondary btn-block");
-            historyEl.append(prevCityEl);
-      }
-
-
-}
-
-renderCities();
 
 function renderPrevCity(event) {
       event.preventDefault();

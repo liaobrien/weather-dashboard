@@ -120,14 +120,25 @@ function setHistory() {
             prevCityEl.text(searchHistory[i]);
       }
       prevCityEl.attr("class", "prev-cities btn btn-secondary btn-block");
-      historyEl.append(prevCityEl).append("<br />");
+      historyEl.append(prevCityEl);
 }
 
 function renderCities() {
-      var storedArr = JSON.parse(localStorage.getItem("searchHistory"));
-      if (storedArr !== null) {
-            searchHistory = storedArr;
+      var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
+      console.log(storedCities.length);
+      console.log(storedCities);
+      if (storedCities !== null) {
+            searchHistory = storedCities;
       }
+      for (let i = 0; i < storedCities.length; i++) {
+            var prevCityEl = $('<button>');
+            prevCityEl.text(storedCities[i]);
+            console.log(storedCities[i]);
+            prevCityEl.attr("class", "prev-cities btn btn-secondary btn-block");
+            historyEl.append(prevCityEl);
+      }
+
+
 }
 
 renderCities();

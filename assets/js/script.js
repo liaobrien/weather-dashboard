@@ -125,15 +125,13 @@ function setHistory() {
 
 function renderCities() {
       var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
-      console.log(storedCities.length);
-      console.log(storedCities);
       if (storedCities !== null) {
             searchHistory = storedCities;
       }
+
       for (let i = 0; i < storedCities.length; i++) {
             var prevCityEl = $('<button>');
             prevCityEl.text(storedCities[i]);
-            console.log(storedCities[i]);
             prevCityEl.attr("class", "prev-cities btn btn-secondary btn-block");
             historyEl.append(prevCityEl);
       }

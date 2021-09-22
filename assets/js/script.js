@@ -34,11 +34,9 @@ function getData(cityPrev) {
 
       fetch(queryUrl)
             .then(function (response) {
-                  console.log(response);
                   return response.json();
             })
             .then(function (data) {
-                  console.log(data);
 
                   cityDateEl.text(city + " - " + currentDate);
                   currentTemp.text("Temperature: " + data.main.temp + "°F");
@@ -55,7 +53,6 @@ function getData(cityPrev) {
                               return response.json();
                         })
                         .then(function (data) {
-                              console.log(data);
 
                               currentUVI.text("UV Index: " + data.current.uvi);
 

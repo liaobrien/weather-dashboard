@@ -125,6 +125,21 @@ function setHistory() {
       historyEl.append(prevCityEl);
 }
 
+function renderCities() {
+      var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
+      if (storedCities !== null) {
+            searchHistory = storedCities;
+            $.each(storedCities, function (index, val) {
+                  historyEl.append("<button class='prev-cities btn btn-secondary btn-block'>" + storedCities[index] + "</button>")
+            })
+      }
+      else {
+            return;
+      }
+
+}
+
+renderCities();
 
 function renderPrevCity(event) {
       event.preventDefault();

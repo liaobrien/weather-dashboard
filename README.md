@@ -1,6 +1,8 @@
 # weather-dashboard
 
-This is an application that calls the current weather and 5-day forecast of any city entered. The app incorporates jQuery, Bootstrap, and the [OpenWeather API](https://openweathermap.org/api/one-call-api).
+This is an application that calls the current weather and 5-day forecast of any city entered. The app incorporates jQuery, Bootstrap, and the OpenWeather API.
+
+The application can be viewed here: [https://liaobrien.github.io/weather-dashboard/](https://liaobrien.github.io/weather-dashboard).
 
 ## Table of Contents
 
@@ -8,6 +10,8 @@ This is an application that calls the current weather and 5-day forecast of any 
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Screenshots](#screenshots)
+- [Questions](#questions)
 
 ## Installation
 
@@ -33,12 +37,16 @@ This page can be accessed and used on any standard web browser. The user first e
 
 ## Credits
 
-I'd like to give a huge shoutout to my coding bootcamp cohort-mate Andrew Currie for offering assistance on building this application. All his work can be found at [https://github.com/curriecoder](https://github.com/curriecoder).
+Styles are provided by Bootstrap. Weather data is courtesy of the [OpenWeather API](https://openweathermap.org/api/one-call-api).
 
 ## License
 
-Creative Commons License: This work can be used by others as long as credit is given.
+This project is licensed under the MIT License.
+
+## Screenshots
 
 ![screenshot of application](./assets/images/screenshot.png)
 
-The application can be viewed here: [https://liaobrien.github.io/weather-dashboard/](https://liaobrien.github.io/weather-dashboard).
+## Questions
+
+If you have any questions about this repository, open an issue or contact me directly at liaobrien123@gmail.com. You can find more of my work at [liaobrien](https://github.com/liaobrien).
